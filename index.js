@@ -5,6 +5,8 @@ const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
 
+const PAGE_ACCESS_TOKEN = "EAADndRHzHwoBAOPhZBvJVOjYmaC5H963PnJYcxcP7TL2PvZAPTXh0YgjxtTxyDVpRUzpmrz1BZCg9xlECSoZBdAhKytEZBj971YPyJSBZAAzDFWWxG6L43bPmZCLwvlMNqyuJsd7Jfnh784sxrjgzT20A2EmL4FsZBIk45hoReRftAZDZD"
+
 app.set('port', (process.env.PORT || 5000))
 
 // Process application/x-www-form-urlencoded
@@ -38,7 +40,7 @@ app.post('/webhook/', function (req, res) {
         let sender = event.sender.id
         if (event.message && event.message.text) {
             let text = event.message.text
-            sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
+            sendTextMessage(sender, "echo: " + text.substring(0, 200))
         }
     }
     res.sendStatus(200)
@@ -78,5 +80,3 @@ function callSendAPI(messageData) {
     }
   });
 }
-
-const PAGE_ACCESS_TOKEN = "EAADndRHzHwoBAOPhZBvJVOjYmaC5H963PnJYcxcP7TL2PvZAPTXh0YgjxtTxyDVpRUzpmrz1BZCg9xlECSoZBdAhKytEZBj971YPyJSBZAAzDFWWxG6L43bPmZCLwvlMNqyuJsd7Jfnh784sxrjgzT20A2EmL4FsZBIk45hoReRftAZDZD"
