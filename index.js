@@ -5,6 +5,8 @@ const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
 
+const PAGE_ACCESS_TOKEN = "EAADndRHzHwoBAAxz5K9S5ZBLBuuoUfZCYbmJmhoAZAXAPYyxPn2V27Ch5WWBRCZByYWqTh0TMCLIPcASpuLVoSETPgUnzb2n8iTN9U9sntNLpVFY2aC4Ly7hPl3w7adoMhFvoz9VnEQIVJl456lJWfEkXs4x56WM8yQ4c22MIwZDZD";
+
 app.set('port', (process.env.PORT || 5000))
 
 // Process application/x-www-form-urlencoded
