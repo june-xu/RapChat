@@ -43,7 +43,9 @@ app.post('/webhook/', function (req, res) {
         if (event.message && event.message.text) {
             let text = event.message.text
 
-            sendTextMessage(sender, "resp " + getRhymezone(text))
+            getRhymezone(text, function(response){
+              sendTextMessage(sender, "resp " + response)
+            })
         }
     }
     res.sendStatus(200)
@@ -94,7 +96,7 @@ function getRhymezone(text){
 
     console.log('body text:', body); // Print the response
 
-    return body;
+    return callback(body);
   });
 
 }

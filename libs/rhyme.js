@@ -18,7 +18,7 @@ function getRhymezone(text){
 
     console.log('body text:', body); // Print the response
 
-    return body;
+    return callback(body);
   });
 
 }
