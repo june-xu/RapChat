@@ -65,6 +65,7 @@ function queryLine(id){
     let jsonResp = JSON.parse(body);
 
     let lyrics = jsonResp.message.body.lyrics.lyrics_body;
+    console.log("Lyrics: " + lyrics);
 
     return lyrics;
   });
