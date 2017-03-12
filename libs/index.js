@@ -7,7 +7,7 @@ const app = express()
 
 const PAGE_ACCESS_TOKEN = "EAADndRHzHwoBAOPhZBvJVOjYmaC5H963PnJYcxcP7TL2PvZAPTXh0YgjxtTxyDVpRUzpmrz1BZCg9xlECSoZBdAhKytEZBj971YPyJSBZAAzDFWWxG6L43bPmZCLwvlMNqyuJsd7Jfnh784sxrjgzT20A2EmL4FsZBIk45hoReRftAZDZD"
 
-const rhyme = require('rhyme.js')
+const rhyme = require('./rhyme.js')
 
 app.set('port', (process.env.PORT || 5000))
 
