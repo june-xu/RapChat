@@ -55,7 +55,7 @@ function queryLine(id){
 }
 
 // text is the last word
-function driver(text) {
+function getRhyme(text) {
   getRhymezone(text, function(response) {
       return getLyric(response);
   });
@@ -63,5 +63,5 @@ function driver(text) {
 
 module.exports = {
     getRhymezone : getRhymezone
-    driver : driver
+    getRhyme : getRhyme
 };
