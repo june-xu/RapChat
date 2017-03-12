@@ -2,7 +2,7 @@
 
 const request = require('request')
 
-function getRhymezone(text, callback){
+function getRhymezone(text){
   console.log("Rhymezone: " + text);
   console.log("URL = " + "https://api.datamuse.com/words?rel_rhy=" + text );
 
@@ -18,7 +18,7 @@ function getRhymezone(text, callback){
     }
     console.log(json_body[0].word);
 
-    return callback(best_words);
+    return best_words;
   });
 }
 
@@ -73,9 +73,8 @@ function queryLine(id){
 
 // text is the last word
 function getRhyme(text) {
-  getRhymezone(text, function(response) {
-      return getLyric(response);
-  });
+  let words = getRhymezone(text);
+  return getLyric(words);
 }
 
 module.exports = {
