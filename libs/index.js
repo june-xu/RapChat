@@ -45,7 +45,7 @@ app.post('/webhook/', function (req, res) {
             var json = rhyme.getRhymes(text)
 
             sendTextMessage(sender, "echo: " + /*text.substring(0, 200)*/
-              + josn.stringify()
+              + josn
             )
         }
     }
