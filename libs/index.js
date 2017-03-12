@@ -7,7 +7,6 @@ const app = express()
 
 const PAGE_ACCESS_TOKEN = "EAADndRHzHwoBANXzbdMnEGFD5oVJYzkiUVrVbnZCoM4JnXKiFtanGLvGLKMGDfXlMpIoshnq4W0qX9TgFMQByLXxcgUNpnf9vrpEE8kkYadBpbh3fPZA0PFGxaZAeZAImexfFVZABAkjUALLnGj9OzFwZBb5BNwSSvrZBUpu2sSZBwZDZD"
 
-
 const rhyme = require('./rhyme.js')
 
 app.set('port', (process.env.PORT || 5000))
@@ -44,8 +43,7 @@ app.post('/webhook/', function (req, res) {
         if (event.message && event.message.text) {
             let text = event.message.text
 
-            var rap_lyric = rhyme.getRhyme(text);
-            sendTextMessage(sender, "resp " + rap_lyric);
+            sendTextMessage(sender, "resp " + rhyme.getRhyme(text));
         }
     }
     res.sendStatus(200)
