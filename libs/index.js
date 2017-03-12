@@ -58,7 +58,7 @@ function sendTextMessage(recipientId, messageText) {
       id: recipientId
     },
     message: {
-      text: "Resp: " + messageText
+      text: messageText
     }
   };
 
