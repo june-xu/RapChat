@@ -78,6 +78,6 @@ function getRhyme(text) {
 }
 
 module.exports = {
-    getRhymezone : getRhymezone,
+    //getRhymezone : getRhymezone,
     getRhyme : getRhyme
 };
