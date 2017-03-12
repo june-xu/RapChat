@@ -11,8 +11,6 @@ function getRhymes(text){
 function getRhymezone(text){
   console.log("Rhymezone: " + text);
 
-  var resp = "";
-
   console.log("URL = " + "https://api.datamuse.com/words?rel_rhy=" + text );
   request("https://api.datamuse.com/words?rel_rhy=" + text, function (error, response, body) {
     console.log('error:', error); // Print the error if one occurred
