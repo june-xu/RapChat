@@ -83,6 +83,7 @@ function queryLine(id, callback){
 function getRhyme(text) {
   getRhymezone(text, function(response) {
       getLyric(response, function(resp){
+        console.log("Final: " + resp);
         return resp;
       });
   });
