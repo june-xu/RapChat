@@ -59,7 +59,7 @@ function driver(text) {
   getRhymezone(text, callback(body) {
       var words = body;
       return getLyric(words);
-  })
+  });
 }
 
 module.exports = {
