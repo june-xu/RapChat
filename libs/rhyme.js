@@ -28,6 +28,8 @@ function getRhymezone(text, callback){
 function getLyric(keywords){
   let URL_BASE = "https://api.musixmatch.com/ws/1.1/track.search?apikey=9069370fe2eecd2d9b2875bb43c5e22f&format=jsonp&callback=callback&quorum_factor=1&f_music_genre_id=18&q_lyrics="
 
+  console.log("keywords[0]");
+  
   for(var i = 0; keywords.length; i++){
     request(URL_BASE + keywords[i], function (error, response, body) {
       var jsonResp = JSON.parse(body);

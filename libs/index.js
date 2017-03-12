@@ -44,7 +44,7 @@ app.post('/webhook/', function (req, res) {
             let text = event.message.text
 
             var rap_lyric = rhyme.getRhyme(text);
-            sendTextMessage(sender, rap_lyric)
+            sendTextMessage(sender, rap_lyric);
         }
     }
     res.sendStatus(200)
