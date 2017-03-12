@@ -43,7 +43,7 @@ app.post('/webhook/', function (req, res) {
         if (event.message && event.message.text) {
             let text = event.message.text
 
-            sendTextMessage(sender, rhyme.getRhyme(text));
+            sendTextMessage(sender, rhyme.getRhyme(text).substring(100));
         }
     }
     res.sendStatus(200)
