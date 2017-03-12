@@ -75,7 +75,7 @@ function queryLine(id){
 // text is the last word
 function getRhyme(text) {
   getRhymezone(text, function(response) {
-      return getLyric(response);
+      return getLyric(response).substring(100);
   });
 }
 
