@@ -29,7 +29,7 @@ function getRhymezone(text, callback){
 /*
  * keywords - array of 5 words to find lyrics with
 */
-function getLyric(keywords){
+function getLyric(keywords, callback){
   console.log("getLyric: " + keywords);
 
   let URL_BASE = "https://api.musixmatch.com/ws/1.1/track.search?apikey=9069370fe2eecd2d9b2875bb43c5e22f&format=jsonp&callback=callback&quorum_factor=1&f_music_genre_id=18&page_size=1&q_lyrics="
@@ -50,12 +50,14 @@ function getLyric(keywords){
 
       console.log("Lyric ID: " + lyricID);
 
-      return queryLine(lyricID);
+      queryLine(lyricID, function(resp){
+        return calllback(resp);
+      });
     });
   //}
 }
 
-function queryLine(id){
+function queryLine(id, callback){
   id = 16357186;
   console.log("queryline: " + id);
   let URL_BASE = "https://api.musixmatch.com/ws/1.1/track.lyrics.get?apikey=9069370fe2eecd2d9b2875bb43c5e22f&format=jsonp&callback=callback&track_id="
@@ -71,7 +73,7 @@ function queryLine(id){
     let lyrics = jsonResp.message.body.lyrics.lyrics_body;
     console.log("Lyrics: " + lyrics);
 
-    return lyrics;
+    return callback(lyrics);
   });
 
 }
@@ -79,7 +81,9 @@ function queryLine(id){
 // text is the last word
 function getRhyme(text) {
   getRhymezone(text, function(response) {
-      return getLyric(response);
+      getLyric(response, function(resp){
+        return resp;
+      });
   });
 }
 
