@@ -56,9 +56,8 @@ function queryLine(id){
 
 // text is the last word
 function driver(text) {
-  getRhymezone(text, callback(body) {
-      var words = body;
-      return getLyric(words);
+  getRhymezone(text, function(response) {
+      return getLyric(response);
   });
 }
 
