@@ -80,11 +80,11 @@ function queryLine(id, callback){
 }
 
 // text is the last word
-function getRhyme(text) {
+function getRhyme(text, callback) {
   getRhymezone(text, function(response) {
       getLyric(response, function(resp){
         console.log("Final: " + resp);
-        return resp;
+        return callback(resp);
       });
   });
 }
