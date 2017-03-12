@@ -2,7 +2,7 @@
 
 const request = require('request')
 
-function getRhymezone(text){
+function getRhymezone(text, callback){
   console.log("Rhymezone: " + text);
   console.log("URL = " + "https://api.datamuse.com/words?rel_rhy=" + text );
 
@@ -18,7 +18,7 @@ function getRhymezone(text){
     }
     console.log(json_body[0].word);
 
-    return best_words;
+    return callback(best_words);
   });
 }
 
@@ -60,7 +60,7 @@ function queryLine(id){
     console.log('error:', error); // Print the error if one occurred
     console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
 
-    //console.log(body);
+    console.log(body);
     body = body.substring(9, body.length -2);
     let jsonResp = JSON.parse(body);
 
@@ -73,12 +73,12 @@ function queryLine(id){
 
 // text is the last word
 function getRhyme(text) {
-  var words = getRhymezone(text);
-  console.log(words);
-  return getLyric(words);
+  getRhymezone(text, function(response) {
+      return getLyric(response);
+  });
 }
 
 module.exports = {
-    //getRhymezone : getRhymezone,
+    getRhymezone : getRhymezone,
     getRhyme : getRhyme
 };
