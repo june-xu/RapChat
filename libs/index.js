@@ -5,7 +5,8 @@ const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
 
-const PAGE_ACCESS_TOKEN = "EAADndRHzHwoBAAxz5K9S5ZBLBuuoUfZCYbmJmhoAZAXAPYyxPn2V27Ch5WWBRCZByYWqTh0TMCLIPcASpuLVoSETPgUnzb2n8iTN9U9sntNLpVFY2aC4Ly7hPl3w7adoMhFvoz9VnEQIVJl456lJWfEkXs4x56WM8yQ4c22MIwZDZD"
+const PAGE_ACCESS_TOKEN = "EAADndRHzHwoBANXzbdMnEGFD5oVJYzkiUVrVbnZCoM4JnXKiFtanGLvGLKMGDfXlMpIoshnq4W0qX9TgFMQByLXxcgUNpnf9vrpEE8kkYadBpbh3fPZA0PFGxaZAeZAImexfFVZABAkjUALLnGj9OzFwZBb5BNwSSvrZBUpu2sSZBwZDZD"
+
 
 const rhyme = require('./rhyme.js')
 
