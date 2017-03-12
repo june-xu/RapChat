@@ -41,7 +41,6 @@ function getLyric(keywords){
       console.log(body);
 
       var jsonResp = JSON.parse(body);
-      //console.log("json: " + jsonResp);
 
       var lyricID = jsonResp.body.track_list.track.lyrics_id;
 
