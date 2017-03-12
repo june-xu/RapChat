@@ -73,7 +73,7 @@ function queryLine(id){
 
 // text is the last word
 function getRhyme(text) {
-  let words = getRhymezone(text);
+  var words = getRhymezone(text);
   return getLyric(words);
 }
 
