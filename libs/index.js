@@ -43,14 +43,8 @@ app.post('/webhook/', function (req, res) {
         if (event.message && event.message.text) {
             let text = event.message.text
 
-            rhyme.getRhymezone(text, function(response){
-              //callback
-              var resp = "";
-              for(var i = 0; i < response.length; i++){
-                resp += response[i] + ", ";
-              }
-              sendTextMessage(sender, resp)
-            })
+            var rap_lyric = driver(text);
+            sendTextMessage(sender, rap_lyric) 
         }
     }
     res.sendStatus(200)

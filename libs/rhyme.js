@@ -22,7 +22,17 @@ function getRhymezone(text, callback){
   });
 
 }
+// text is the last word 
+function driver(text) {
+  getRhymezone(text, callback(body)) {
+      var words = body; 
+      getLyrics(words, callback(response)) {
+        return response; 
+      }
+  }
+}
 
 module.exports = {
     getRhymezone: getRhymezone
+    driver: driver
 };
