@@ -86,7 +86,7 @@ function callSendAPI(messageData) {
   });
 }
 
-function getRhymezone(text){
+function getRhymezone(text, callback){
   console.log("Rhymezone: " + text);
 
   console.log("URL = " + "https://api.datamuse.com/words?rel_rhy=" + text );
