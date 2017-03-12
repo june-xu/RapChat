@@ -2,12 +2,6 @@
 
 const request = require('request')
 
-function getRhymes(text){
-  console.log("Rhyme: " + text);
-
-  return getRhymezone(text);
-}
-
 function getRhymezone(text, callback){
   console.log("Rhymezone: " + text);
   console.log("URL = " + "https://api.datamuse.com/words?rel_rhy=" + text );
@@ -23,7 +17,6 @@ function getRhymezone(text, callback){
 
 }
 
-
 module.exports = {
-    getRhymes: getRhymes
+    getRhymezone: getRhymezone
 };
