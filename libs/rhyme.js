@@ -32,7 +32,7 @@ function getLyric(keywords){
 
   console.log(keywords[0]);
 
-  for(var i = 0; keywords.length; i++){
+  //for(var i = 0; keywords.length; i++){
     request(URL_BASE + keywords[i], function (error, response, body) {
       console.log('error:', error); // Print the error if one occurred
       console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
@@ -46,7 +46,7 @@ function getLyric(keywords){
 
       return queryLine(lyricID);
     });
-  }
+  //}
 }
 
 function queryLine(id){
