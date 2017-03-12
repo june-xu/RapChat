@@ -58,9 +58,11 @@ function queryLine(id){
   request(URL_BASE + id, function (error, response, body) {
     console.log('error:', error); // Print the error if one occurred
     console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+
+    body = body.substring(9, body.length -2);
     let jsonResp = JSON.parse(body);
 
-    let lyrics = jsonResp.body.lyrics.lyrics_body;
+    let lyrics = jsonResp.message.body.lyrics.lyrics_body;
 
     return lyrics;
   });
