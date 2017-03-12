@@ -12,9 +12,13 @@ function getRhymezone(text, callback){
 
     console.log('body text:', body); // Print the response
     var json_body = JSON.parse(body);
+    var best_words = new Array(5);
+    for (var i =0; i<5; i++) {
+    	best_words.push(json_body[i].word);
+    }
     console.log(json_body[0].word);
 
-    return callback(body);
+    return callback(best_words);
   });
 
 }

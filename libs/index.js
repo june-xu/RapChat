@@ -45,7 +45,11 @@ app.post('/webhook/', function (req, res) {
 
             rhyme.getRhymezone(text, function(response){
               //callback
-              sendTextMessage(sender, "resp " + response.substring(0, 100))
+              var resp = "";
+              for(var i = 0; i < response.length; i++){
+                resp += response[i] + ", ";
+              }
+              sendTextMessage(sender, "resp " + resp)
             })
         }
     }
