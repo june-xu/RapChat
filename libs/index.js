@@ -42,8 +42,10 @@ app.post('/webhook/', function (req, res) {
         let sender = event.sender.id
         if (event.message && event.message.text) {
             let text = event.message.text
+            var json = rhyme.getRhymes(text)
+
             sendTextMessage(sender, "echo: " + /*text.substring(0, 200)*/
-              + rhyme.getRhymes(text)
+              + josn.stringify()
             )
         }
     }
