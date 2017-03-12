@@ -49,7 +49,7 @@ app.post('/webhook/', function (req, res) {
               for(var i = 0; i < response.length; i++){
                 resp += response[i] + ", ";
               }
-              sendTextMessage(sender, "resp " + resp)
+              sendTextMessage(sender, resp)
             })
         }
     }
