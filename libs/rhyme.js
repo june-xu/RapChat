@@ -74,6 +74,7 @@ function queryLine(id){
 // text is the last word
 function getRhyme(text) {
   var words = getRhymezone(text);
+  console.log(words);
   return getLyric(words);
 }
 
