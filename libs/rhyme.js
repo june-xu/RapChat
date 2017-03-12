@@ -62,6 +62,6 @@ function driver(text) {
 }
 
 module.exports = {
-    getRhymezone: getRhymezone
-    driver: driver
+    getRhymezone : getRhymezone
+    driver : driver
 };
