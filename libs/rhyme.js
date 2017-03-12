@@ -20,15 +20,45 @@ function getRhymezone(text, callback){
 
     return callback(best_words);
   });
+}
+
+/*
+ * keywords - array of 5 words to find lyrics with
+*/
+function getLyric(keywords){
+  let URL_BASE = "https://api.musixmatch.com/ws/1.1/track.search?apikey=9069370fe2eecd2d9b2875bb43c5e22f&format=jsonp&callback=callback&quorum_factor=1&f_music_genre_id=18&q_lyrics="
+
+  for(var x = 0; keywords.length; i++){
+    request(URL_BASE + keywords[i], function (error, response, body) {
+      var jsonResp = JSON.parse(body);
+
+      var lyricID = jsonResp.body.track_list[0].track.lyrics_id;
+
+      console.log("Lyric ID: " + lyricID);
+
+      return queryLine(lyricID);
+    });
+  }
+}
+
+function queryLine(id){
+  let URL_BASE = "https://api.musixmatch.com/ws/1.1/track.lyrics.get?apikey=9069370fe2eecd2d9b2875bb43c5e22f&format=jsonp&callback=callback&track_id="
+
+  request(URL_BASE + id, function (error, response, body) {
+    let jsonResp = JSON.parse(body);
+
+    let lyrics = jsonResp.body.lyrics.lyrics_body;
+
+    return lyrics;
+  });
 
 }
-// text is the last word 
+
+// text is the last word
 function driver(text) {
   getRhymezone(text, callback(body)) {
-      var words = body; 
-      getLyrics(words, callback(response)) {
-        return response; 
-      }
+      var words = body;
+      return getLyric(words);
   }
 }
 
