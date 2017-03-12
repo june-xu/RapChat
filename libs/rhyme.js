@@ -11,6 +11,8 @@ function getRhymezone(text, callback){
     console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
 
     console.log('body text:', body); // Print the response
+    var json_body = JSON.parse(body);
+    console.log(json_body.word);
 
     return callback(body);
   });
