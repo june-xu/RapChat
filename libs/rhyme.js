@@ -51,7 +51,7 @@ function getLyric(keywords, callback){
       console.log("Lyric ID: " + lyricID);
 
       queryLine(lyricID, function(resp){
-        return calllback(resp);
+        return callback(resp);
       });
     });
   //}
