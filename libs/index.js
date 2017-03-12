@@ -43,7 +43,7 @@ app.post('/webhook/', function (req, res) {
         if (event.message && event.message.text) {
             let text = event.message.text
 
-            getRhymezone(text, function(response){
+            rhyme.getRhymezone(text, function(response){
               //callback
               sendTextMessage(sender, "resp " + response.substring(0, 100))
             })
@@ -85,19 +85,4 @@ function callSendAPI(messageData) {
       console.error(error);
     }
   });
-}
-
-function getRhymezone(text, callback){
-  console.log("Rhymezone: " + text);
-  console.log("URL = " + "https://api.datamuse.com/words?rel_rhy=" + text );
-
-  request("https://api.datamuse.com/words?rel_rhy=" + text, function (error, response, body) {
-    console.log('error:', error); // Print the error if one occurred
-    console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-
-    console.log('body text:', body); // Print the response
-
-    return callback(body);
-  });
-
 }

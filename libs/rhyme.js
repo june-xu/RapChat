@@ -8,10 +8,10 @@ function getRhymes(text){
   return getRhymezone(text);
 }
 
-function getRhymezone(text){
+function getRhymezone(text, callback){
   console.log("Rhymezone: " + text);
-
   console.log("URL = " + "https://api.datamuse.com/words?rel_rhy=" + text );
+
   request("https://api.datamuse.com/words?rel_rhy=" + text, function (error, response, body) {
     console.log('error:', error); // Print the error if one occurred
     console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
@@ -22,6 +22,7 @@ function getRhymezone(text){
   });
 
 }
+
 
 module.exports = {
     getRhymes: getRhymes
