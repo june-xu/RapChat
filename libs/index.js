@@ -43,7 +43,7 @@ app.post('/webhook/', function (req, res) {
         if (event.message && event.message.text) {
             let text = event.message.text
 
-            var rap_lyric = rhyme.driver(text);
+            var rap_lyric = rhyme.getRhyme(text);
             sendTextMessage(sender, rap_lyric)
         }
     }
