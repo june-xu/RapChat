@@ -37,9 +37,9 @@ function getLyric(keywords){
       console.log('error:', error); // Print the error if one occurred
       console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
 
-      body = body.substring(9, body.length -1)
+      body = body.substring(9, body.length -2)
       console.log(body);
-      
+
       var jsonResp = JSON.parse(body);
 
       var lyricID = jsonResp.body.track_list[0].track.lyrics_id;
