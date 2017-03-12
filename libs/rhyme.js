@@ -26,6 +26,8 @@ function getRhymezone(text, callback){
  * keywords - array of 5 words to find lyrics with
 */
 function getLyric(keywords){
+  console.log("getLyric: " + keywords);
+
   let URL_BASE = "https://api.musixmatch.com/ws/1.1/track.search?apikey=9069370fe2eecd2d9b2875bb43c5e22f&format=jsonp&callback=callback&quorum_factor=1&f_music_genre_id=18&q_lyrics="
 
   console.log(keywords[0]);
@@ -34,7 +36,7 @@ function getLyric(keywords){
     request(URL_BASE + keywords[i], function (error, response, body) {
       console.log('error:', error); // Print the error if one occurred
       console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-      
+
       var jsonResp = JSON.parse(body);
 
       var lyricID = jsonResp.body.track_list[0].track.lyrics_id;
@@ -47,9 +49,12 @@ function getLyric(keywords){
 }
 
 function queryLine(id){
+  console.log("queryline: " + id);
   let URL_BASE = "https://api.musixmatch.com/ws/1.1/track.lyrics.get?apikey=9069370fe2eecd2d9b2875bb43c5e22f&format=jsonp&callback=callback&track_id="
 
   request(URL_BASE + id, function (error, response, body) {
+    console.log('error:', error); // Print the error if one occurred
+    console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
     let jsonResp = JSON.parse(body);
 
     let lyrics = jsonResp.body.lyrics.lyrics_body;
