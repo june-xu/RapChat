@@ -44,7 +44,7 @@ app.post('/webhook/', function (req, res) {
             let text = event.message.text
             var json = rhyme.getRhymes(text)
 
-            sendTextMessage(sender, josn)
+            sendTextMessage(sender, json)
         }
     }
     res.sendStatus(200)
